@@ -1,7 +1,19 @@
 import '../styles/globals.css'
+import dynamic from 'next/dynamic'
+import '@solana/wallet-adapter-react-ui/styles.css'
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  const WalletConnectionProvider = dynamic(
+    () => import ('../context/WalletConnectionprovider'),
+    { ssr:false },
+  )
+
+  return (
+    <WalletConnectionProvider>
+      <Component {...pageProps} />
+    </WalletConnectionProvider>
+
+  )
 }
 
 export default MyApp
