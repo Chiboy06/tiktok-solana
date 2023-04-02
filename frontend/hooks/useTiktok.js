@@ -47,7 +47,7 @@ const useTiktok = (
     const newVideo = async () => {
         const randomKey = anchor.web3.Keypair.generate().publicKey
 
-        let [video_pda] = await anchor.web3.PublicKey.findProgramAddressSync(
+        let [video_pda] = await anchor.web3.PublicKey.findProgramAddress(
             [utf8.encode('video'), randomKey.toBuffer()],
             program.programId,
         )

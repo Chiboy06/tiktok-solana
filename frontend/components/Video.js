@@ -21,15 +21,15 @@ const Video = ({
 
     const [playing, setPlaying ] = useState(true)
     const [showCommentsModal, setShowCommentsModal ] = useState(false)
-    const videoRef = useRef(null)
+    const videoRef = useRef()
 
     const onVideoPress = () => {
         if(playing) {
-            videoRef.current.play()
-            setPlaying(true)
-        } else {
             videoRef.current.pause()
             setPlaying(false)
+        } else {
+            videoRef.current.play()
+            setPlaying(true)
         }
     
     }
