@@ -3,6 +3,8 @@ import { useRef } from 'react'
 import { useState } from 'react'
 import styles from '../styles/Video.module.css'
 import Comments from './Comments'
+import Sidebar from './Sidebar'
+import Footer from './Footer'
 
 const Video = ({
     address,
@@ -13,15 +15,15 @@ const Video = ({
     likes,
     shares,
     likeVideo,
-    likeAddress,
+    likesAddress,
     createComment,
     getComments,
     commentCount,
 }) => {
 
-    const [playing, setPlaying ] = useState(true)
+    const [playing, setPlaying ] = useState(false)
     const [showCommentsModal, setShowCommentsModal ] = useState(false)
-    const videoRef = useRef()
+    const videoRef = useRef(null)
 
     const onVideoPress = () => {
         if(playing) {
@@ -53,12 +55,28 @@ const Video = ({
             style = {{objectFit: 'cover'}}
         />
 
-        {/* < Footer /> */}
+        <Footer channel={channel} description = {description} song = {index}  />
 
-        {/* <Sidebar/> */}
+        <Sidebar
+            address = {address}
+            likes = {likes}
+            shares = {shares}
+            onShowComments = {showComments}
+            likeVideo = {likeVideo}
+            index = {index}
+            likesAddress = {likesAddress}
+            messages = {commentCount}
+        />
 
         {showCommentsModal && (
-            <Comments />
+            <Comments 
+                onHide = {hideComments}
+                index = {index}
+                address = {address}
+                createComment = {createComment}
+                getComments = {getComments}
+                commentCount = {commentCount}
+            />
         )}
 
 
