@@ -6,6 +6,7 @@
 }
 
 .sidebarButton {
-    padding: 20px;
+    padding: 5px 25px;
+    /* padding: 20px; */
     text-align: center;
 }

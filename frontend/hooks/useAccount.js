@@ -21,7 +21,7 @@ const useAccount = () => {
     const program = getProgramInstance(connection, wallet)
     const signup = async (name,profile) => {
         let [user_pda] = await anchor.web3.PublicKey.
-        findProgramAddressSync(
+        findProgramAddress(
             [utf8.encode('user'), wallet.publicKey.toBuffer()], program.programId
         )
 

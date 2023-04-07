@@ -16,7 +16,7 @@ export function getProgramInstance(connection, wallet,) {
     // Address of the deployed program
     const programId = TIKTOK_PROGRAM_ID
 
-    const program = new(anchor).Program(idl,programId,provider)
+    const program = new(anchor).Program(idl,programId,provider);
 
     return program
 }

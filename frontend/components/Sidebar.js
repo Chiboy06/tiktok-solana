@@ -5,6 +5,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite'
 import MessageIcon from '@material-ui/icons/Message'
 import ShareIcon from '@material-ui/icons/Share'
 import { useWallet } from '@solana/wallet-adapter-react'
+// import likeVideo from '../hooks/useTiktok'
 
 const Sidebar = ({
     address,
@@ -41,7 +42,7 @@ const Sidebar = ({
             ) : (
                 <FavoriteIcon
                     fontSize='large'
-                    onClick={e=> {
+                    onClick = {e => {
                         likeVideo(address)
                     }}
                 />

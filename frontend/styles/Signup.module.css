@@ -1,6 +1,8 @@
 .authContainer {
     background-color: white;
+    /* width: 90%; */
     min-width: 25rem;
+    
     min-height: 20rem;
     display: flex;
     flex-direction: column;
@@ -57,7 +59,8 @@
     cursor: pointer;
     transition: 0.2s linear;
     max-width: 500px;
-    min-width: 300px;
+    /* min-width: 300px; */
+    width: 96%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,4 +70,11 @@
 
 .loginButton:active {
     transform: scale(0.9);
+}
+
+@media screen and (max-width: 360px) {
+    .authContainer {
+        /* min-width: 25rem!important; */
+        width: 90%!important;
+    }
 }

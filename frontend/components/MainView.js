@@ -34,7 +34,7 @@ const MainView = () => {
 
   const program = getProgramInstance(connection,wallet)
 
-  const [ tiktoks, setTikToks ] = useState()
+  const [ tiktoks, setTikToks ] = useState([])
 
   const [newVideoShow, setNewVideoShow] = useState(false)
   const [description, setDescription] = useState('')
@@ -61,7 +61,7 @@ const MainView = () => {
 
   const checkAccount = async () => {
     let [user_pda] = await anchor.web3.PublicKey.
-    findProgramAddressSync(
+    findProgramAddress(
         [utf8.encode('user'), wallet.publicKey.toBuffer()], program.programId,
     )
 
@@ -102,7 +102,7 @@ const MainView = () => {
                       index = {tiktok.account.index.toNumber()}
                       likes = {tiktok.account.likes}
                       description = {tiktok.account.description}
-                      likevideo = {likeVideo}
+                      likeVideo = {likeVideo}
                       likesAddress = {tiktok.account.peopleWhoLiked}
                       createComment = {createComment}
                       getComments = {getComments}
